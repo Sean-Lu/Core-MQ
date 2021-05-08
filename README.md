@@ -21,6 +21,22 @@ args.ShouldRecovery = true;
 options.PersistMsgWhenException = true;
 ```
 
+## Packages
+
+| Package | NuGet Stable | NuGet Pre-release | Downloads |
+| ------- | ------------ | ----------------- | --------- |
+| [Sean.Core.MQ.ActiveMQ](https://www.nuget.org/packages/Sean.Core.MQ.ActiveMQ/) | [![Sean.Core.MQ.ActiveMQ](https://img.shields.io/nuget/v/Sean.Core.MQ.ActiveMQ.svg)](https://www.nuget.org/packages/Sean.Core.MQ.ActiveMQ/) | [![Sean.Core.MQ.ActiveMQ](https://img.shields.io/nuget/vpre/Sean.Core.MQ.ActiveMQ.svg)](https://www.nuget.org/packages/Sean.Core.MQ.ActiveMQ/) | [![Sean.Core.MQ.ActiveMQ](https://img.shields.io/nuget/dt/Sean.Core.MQ.ActiveMQ.svg)](https://www.nuget.org/packages/Sean.Core.MQ.ActiveMQ/) |
+
+## Nuget包引用
+
+> **Id：Sean.Core.MQ.ActiveMQ**
+
+- Package Manager
+
+```
+PM> Install-Package Sean.Core.MQ.ActiveMQ
+```
+
 ## 配置示例
 
 > 配置文件：
