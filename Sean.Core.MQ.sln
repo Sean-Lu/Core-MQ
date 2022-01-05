@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sean.Core.MQ.ActiveMQ", "sr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{052B1FAF-3631-4F21-ACF4-8D2E9DDABCEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.NetCore", "test\Demo.NetCore\Demo.NetCore.csproj", "{5E9ED759-6333-4F87-AB41-A21C87839EB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.NetCore", "test\Demo.NetCore\Demo.NetCore.csproj", "{5E9ED759-6333-4F87-AB41-A21C87839EB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1FBD8C40-8E17-4B7F-8E56-C8ED2D7BC215}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,15 +1,12 @@
-﻿using Demo.NetCore.Consumers;
+﻿using Demo.NetCore.Consumers.ActiveMQ;
 using Microsoft.Extensions.Configuration;
 using Sean.Core.MQ.ActiveMQ;
 using Sean.Utility.Contracts;
-using System;
-using Demo.NetCore.Models;
-using Sean.Core.Ioc;
 
-namespace Demo.NetCore.Impls.Test
+namespace Demo.NetCore.Impls.ActiveMQ
 {
     /// <summary>
-    /// 消息队列
+    /// ActiveMQ
     /// </summary>
     public class SimpleActiveMQTest : ISimpleDo
     {
@@ -23,8 +20,8 @@ namespace Demo.NetCore.Impls.Test
             IConfiguration configuration
             )
         {
-            _logger = logger;//ServiceManager.GetService<ISimpleLogger<SimpleActiveMQTest>>();
-            _configuration = configuration;//ServiceManager.GetService<IConfiguration>();
+            _logger = logger;//IocContainer.Instance.GetService<ISimpleLogger<SimpleActiveMQTest>>();
+            _configuration = configuration;//IocContainer.Instance.GetService<IConfiguration>();
 
             #region 消费者
             _consumer = new SimpleConsumer(new ActiveMQOptions(_configuration).BrokerUri, MQType.Queue, "Test_PromotionRecharge",

@@ -1,17 +1,17 @@
-﻿using Demo.NetCore.Consumers;
+﻿using System;
+using Apache.NMS;
+using Demo.NetCore.Consumers.ActiveMQ;
 using Demo.NetCore.Models;
 using Microsoft.Extensions.Configuration;
 using Sean.Core.Ioc;
 using Sean.Core.MQ.ActiveMQ;
 using Sean.Utility.Contracts;
-using System;
-using Apache.NMS;
 using Sean.Utility.Format;
 
-namespace Demo.NetCore.Impls.Test
+namespace Demo.NetCore.Impls.ActiveMQ
 {
     /// <summary>
-    /// 消息队列
+    /// ActiveMQ
     /// </summary>
     public class ActiveMQTest : ISimpleDo
     {
@@ -23,8 +23,8 @@ namespace Demo.NetCore.Impls.Test
             IConfiguration configuration
             )
         {
-            _logger = logger;//ServiceManager.GetService<ISimpleLogger<ActiveMQTest>>();
-            _configuration = configuration;//ServiceManager.GetService<IConfiguration>();
+            _logger = logger;//IocContainer.Instance.GetService<ISimpleLogger<ActiveMQTest>>();
+            _configuration = configuration;//IocContainer.Instance.GetService<IConfiguration>();
 
             Producer.ResendPesistMsgTimerInterval = 3 * 1000;
             Producer.StartResendPesistMsgTimer();// 手动启动消息补偿定时器
@@ -60,7 +60,7 @@ namespace Demo.NetCore.Impls.Test
             #endregion
 
             //TestConsumer.Instance.Start();
-            ServiceManager.GetService<TestConsumer>().Start();
+            IocContainer.Instance.GetService<TestConsumer>().Start();
         }
 
         public void Execute()

@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Sean.Core.Ioc" Version="1.0.1" />
-    <PackageReference Include="Sean.Utility" Version="2.0.14" />
+    <PackageReference Include="Sean.Core.Ioc" Version="1.0.3" />
+    <PackageReference Include="Sean.Utility" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>

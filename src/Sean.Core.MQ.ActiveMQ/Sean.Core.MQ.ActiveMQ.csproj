@@ -5,19 +5,16 @@
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Sean</Authors>
-    <Company>Sean Studio</Company>
     <Description>ActiveMQ</Description>
-    <Version>1.0.3</Version>
-    <PackageProjectUrl>https://github.com/Sean-Lu/Core-MQ.git</PackageProjectUrl>
+    <Version>1.0.4-beta2022010501</Version>
+    <PackageProjectUrl>https://github.com/Sean-Lu/Core-MQ</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net4'">
     <Reference Include="System.Configuration" />
-    <!--<Reference Include="System.Web" />-->
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <!--<PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />-->
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
   </ItemGroup>
 

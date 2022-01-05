@@ -10,7 +10,7 @@ namespace Sean.Core.MQ.ActiveMQ.MsgStore
         /// <summary>
         /// 唯一标识符
         /// </summary>
-        public string Guid { get; set; }
+        public string Identity { get; set; }
 
         public ProducerOptions Options { get; set; }
 

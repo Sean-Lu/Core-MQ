@@ -90,7 +90,7 @@ namespace Sean.Core.MQ.ActiveMQ
             {
                 return new MsgStoreModel
                 {
-                    Guid = Guid.NewGuid().ToString().Replace("-", ""),
+                    Identity = Guid.NewGuid().ToString().Replace("-", ""),
                     Options = _options,
                     Schedule = schedule,
                     Msg = msg,

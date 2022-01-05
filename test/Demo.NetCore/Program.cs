@@ -1,6 +1,7 @@
 ﻿using System;
 using Demo.NetCore.Consumers;
-using Demo.NetCore.Impls.Test;
+using Demo.NetCore.Consumers.ActiveMQ;
+using Demo.NetCore.Impls.ActiveMQ;
 using Microsoft.Extensions.DependencyInjection;
 using Sean.Core.Ioc;
 using Sean.Utility.Common;
@@ -16,22 +17,22 @@ namespace Demo.NetCore
 
         static void Main(string[] args)
         {
-            ServiceManager.ConfigureServices(services =>
+            IocContainer.Instance.ConfigureServices((services, configuration) =>
             {
                 services.AddSimpleLocalLogger();
-                services.AddSingleton<TestConsumer>();// 单例
+                services.AddSingleton<TestConsumer>();
                 services.AddSingleton<SimpleActiveMQTest>();
                 services.AddSingleton<ActiveMQTest>();
             });
 
             SimpleLocalLoggerBase.DateTimeFormat = time => time.ToLongDateTime();
 
-            _logger = ServiceManager.GetService<ISimpleLogger<Program>>();
+            _logger = IocContainer.Instance.GetService<ISimpleLogger<Program>>();
 
             ExceptionHelper.CatchGlobalUnhandledException(_logger);
 
-            ISimpleDo toDo = ServiceManager.GetService<ActiveMQTest>();//new ActiveMQTest();
-            //ISimpleDo toDo = ServiceManager.GetService<SimpleActiveMQTest>();//new SimpleActiveMQTest();
+            ISimpleDo toDo = IocContainer.Instance.GetService<ActiveMQTest>();//new ActiveMQTest();
+            //ISimpleDo toDo = IocContainer.Instance.GetService<SimpleActiveMQTest>();//new SimpleActiveMQTest();
             toDo.Execute();
             while (Console.ReadLine() == "1")
             {

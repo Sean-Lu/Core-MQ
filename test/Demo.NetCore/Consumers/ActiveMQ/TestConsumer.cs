@@ -1,14 +1,16 @@
 ﻿using System;
 using Demo.NetCore.Models;
 using Microsoft.Extensions.Configuration;
-using Sean.Core.Ioc;
 using Sean.Core.MQ.ActiveMQ;
 using Sean.Utility.Contracts;
 using Sean.Utility.Format;
 
-namespace Demo.NetCore.Consumers
+namespace Demo.NetCore.Consumers.ActiveMQ
 {
-    public class TestConsumer //: ISimpleService
+    /// <summary>
+    /// ActiveMQ
+    /// </summary>
+    public class TestConsumer : ISimpleService
     {
         //public static TestConsumer Instance { get; } = new TestConsumer();
 
@@ -21,8 +23,8 @@ namespace Demo.NetCore.Consumers
             IConfiguration configuration
             )
         {
-            _logger = logger;//ServiceManager.GetService<ISimpleLogger<TestConsumer>>();
-            _configuration = configuration;//ServiceManager.GetService<IConfiguration>();
+            _logger = logger;//IocContainer.Instance.GetService<ISimpleLogger<TestConsumer>>();
+            _configuration = configuration;//IocContainer.Instance.GetService<IConfiguration>();
 
             _consumer = new Consumer<TestModel>(_configuration, options => { options.Name = "Test"; }, ReceivedHandle);
         }
